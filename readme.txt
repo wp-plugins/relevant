@@ -14,7 +14,7 @@ This plugin allows you to display related posts with similar words in category, 
 
 Related Posts Plugin allows you to display related posts with similar words in category, tags, title or by adding special meta key for posts, and display list of the titles of these posts by the widget or by the shortcode.
 
-<a href="http://wordpress.org/extend/plugins/related-posts-plugin/faq/" target="_blank">FAQ</a>
+<a href="http://wordpress.org/extend/plugins/relevant/faq/" target="_blank">FAQ</a>
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 = Features =
