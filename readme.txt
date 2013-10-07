@@ -1,4 +1,4 @@
-=== Related Posts Plugin ===
+=== Relevant – Related Posts Plugin ===
 Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: related posts, posts, related, related posts plugin, plugin, related category posts, related tag posts, category, tag
@@ -41,7 +41,7 @@ We can fix some things for free for the users who provide translation of our plu
 
 == Installation ==
 
-1. Upload `related-posts-plugin` folder to the `/wp-content/plugins/` directory.
+1. Upload `relevant` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in your WordPress admin panel.
 3. You can adjust necessary settings through your WordPress admin panel in "Settings" > "Related Posts Plugin".
 4. Create a page or a post and insert shortcode [bws_related_posts] into the text.
