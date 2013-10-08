@@ -1,4 +1,4 @@
-=== Relevant – Related Posts Plugin ===
+=== Relevant - Related Posts Plugin ===
 Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: related posts, posts, related, related posts plugin, plugin, related category posts, related tag posts, category, tag

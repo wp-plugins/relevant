@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Relevant – Related Posts Plugin
+Plugin Name: Relevant - Related Posts Plugin
 Plugin URI: http://bestwebsoft.com/plugin/
 Description: Related Posts Plugin intended to display related posts by category, by tag, by title or by meta key. The result can be displayed as a widget and as a shortocode.
 Author: BestWebSoft
