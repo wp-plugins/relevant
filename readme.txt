@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: related posts, posts, related, related posts plugin, plugin, related category posts, related tag posts, category, tag
 Requires at least: 3.0
-Tested up to: 3.6.1
-Stable tag: 1.0.2
+Tested up to: 3.7.1
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ This plugin allows you to display related posts with similar words in category, 
 
 Related Posts Plugin allows you to display related posts with similar words in category, tags, title or by adding special meta key for posts, and display list of the titles of these posts by the widget or by the shortcode.
 
-<a href="http://wordpress.org/extend/plugins/relevant/faq/" target="_blank">FAQ</a>
+<a href="http://wordpress.org/plugins/relevant/faq/" target="_blank">FAQ</a>
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 = Features =
@@ -23,6 +23,13 @@ Related Posts Plugin allows you to display related posts with similar words in c
 * Title: You can add your own title shortcode list of similar posts. Just write your own frase in the input with title: "Heading the list of similar posts:". Also you can write HTML attribute to this phrase.
 * Display: You can choose the number of posts to show in the input with label: "How many posts to display: ".
 * Display: Enter the text to show if there will be no posts to show in the input with label: "Message if do not have related posts:".
+
+= Recommended Plugins =
+
+The author of the Relevant also recommends the following plugins:
+
+* <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/plugin/updater-pro/?k=fea5746dc4c898e318c1ab7b6b792328">Updater Pro</a> with more useful features available. It allows to update plugins and WordPress core on several websites. It can make backup of all your files and database before updating.
 
 = Translation =
 
@@ -93,6 +100,11 @@ After you choosed "Meta Key" you should do follow:
 
 == Changelog ==
 
+= V1.0.3 - 08.10.13 =
+* NEW : Add checking installed wordpress version.
+* Update : We updated all functionality for wordpress 3.7.1.
+* Update : Activation of radio button or checkbox by clicking on its label.
+
 = V1.0.2 - 02.10.13 =
 * NEW : We added BWS Menu.
 * NEW : We added new screenshots.
@@ -106,6 +118,9 @@ After you choosed "Meta Key" you should do follow:
 * Update : Improved design of code.
 
 == Upgrade Notice ==
+
+= V1.0.3 =
+Add checking installed wordpress version. We updated all functionality for wordpress 3.7.1. Activation of radio button or checkbox by clicking on its label.
 
 = V1.0.2 =
 We added BWS Menu. We added new screenshots. Styles were updated.
