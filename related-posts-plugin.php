@@ -4,7 +4,7 @@ Plugin Name: Relevant - Related Posts Plugin
 Plugin URI: http://bestwebsoft.com/plugin/
 Description: Related Posts Plugin intended to display related posts by category, by tag, by title or by meta key. The result can be displayed as a widget and as a shortocode.
 Author: BestWebSoft
-Version: 1.0.3
+Version: 1.0.4
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -39,7 +39,12 @@ if( ! function_exists( 'add_rltdpstsplgn_admin_menu' ) ) {
 /* Setting options */
 if( ! function_exists( 'rltdpstsplgn_set_options' ) ) {
 	function rltdpstsplgn_set_options() {
-		global $rltdpstsplgn_options, $wpmu;
+		global $rltdpstsplgn_options, $wpmu, $bws_plugin_info;
+
+		if ( function_exists( 'get_plugin_data' ) && ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) ) ) {
+			$plugin_info = get_plugin_data( __FILE__ );	
+			$bws_plugin_info = array( 'id' => '100', 'version' => $plugin_info["Version"] );
+		};
 		/*
 		Defaults checked radio button => "category", post to show with plugin => "5",
 		heading the list of related posts, message if no related posts
@@ -110,9 +115,34 @@ if ( ! function_exists ( 'rltdpstsplgn_plugin_version_check' ) ) {
 /* Connecting Stylesheet and Scripts */
 if ( ! function_exists ( 'rltdpstsplgn_admin_style' ) ) {
 	function rltdpstsplgn_admin_style() {
-		wp_enqueue_style( 'rltdpstsplgnstylesheet', plugins_url( 'css/style.css', __FILE__ ) );
+		global $wp_version;
+		if ( $wp_version < 3.8 )
+			wp_enqueue_style( 'rltdpstsplgnstylesheet', plugins_url( 'css/style_wp_before_3.8.css', __FILE__ ) );	
+		else
+			wp_enqueue_style( 'rltdpstsplgnstylesheet', plugins_url( 'css/style.css', __FILE__ ) );
 		if ( isset( $_GET['page'] ) && "bws_plugins" == $_GET['page'] )
 			wp_enqueue_script( 'bws_menu_script', plugins_url( 'js/bws_menu.js', __FILE__ ) );
+	}
+}
+
+if ( ! function_exists('rltdpstsplgn_admin_js') ) {
+	function rltdpstsplgn_admin_js() {
+		if ( isset( $_GET['page'] ) && "related-posts-plugin.php" == $_GET['page'] ) {
+			/* add notice about changing in the settings page */
+			?>
+			<script type="text/javascript">
+				(function($) {
+					$(document).ready( function() {
+						$( '#rltdpstsplgn_settings_form input' ).bind( "change click select", function() {
+							if ( $( this ).attr( 'type' ) != 'submit' ) {
+								$( '.updated.fade' ).css( 'display', 'none' );
+								$( '#rltdpstsplgn_settings_notice' ).css( 'display', 'block' );
+							};
+						});
+					});
+				})(jQuery);
+			</script>
+		<?php }
 	}
 }
 
@@ -269,8 +299,9 @@ if ( ! function_exists( 'rltdpstsplgn_settings_page' ) ) {
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
 			<h2><?php _e( 'Related Posts Plugin Settings', 'related_posts_plugin' ); ?></h2>
 			<div class="updated fade" <?php if ( ! isset( $_REQUEST['rltdpstsplgn_form_submit'] ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
+			<div id="rltdpstsplgn_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'related_posts_plugin' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'related_posts_plugin' ); ?></p></div>
 			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
-			<form method="post" action="admin.php?page=related-posts-plugin.php">
+			<form method="post" action="admin.php?page=related-posts-plugin.php" id="rltdpstsplgn_settings_form">
 				<div id="rltdpstsplgn_options">
 					<p><?php _e( 'If you would like to display related posts with widget, you must add widget "Releted Posts Plugin" in the tab Widgets', 'related_posts_plugin' ); ?></p>
 					<p><?php _e( 'If you would like to display related posts on the end of your post, just copy and put this shortcode onto your post or page: [bws_related_posts]', 'related_posts_plugin' ); ?></p>
@@ -345,6 +376,17 @@ if ( ! function_exists( 'rltdpstsplgn_settings_page' ) ) {
 				</p>
 				<?php wp_nonce_field( plugin_basename( __FILE__ ), 'rltdpstsplgn_nonce_name' ); ?>
 			</form>
+			<br />
+			<div class="bws-plugin-reviews">
+				<div class="bws-plugin-reviews-rate">
+				<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'related_posts_plugin' ); ?>:<br/>
+				<a href="http://wordpress.org/support/view/plugin-reviews/relevant" target="_blank" title="Relevant - Related Posts Plugin"><?php _e( 'Rate the plugin', 'related_posts_plugin' ); ?></a><br/>
+				</div>
+				<div class="bws-plugin-reviews-support">
+				<?php _e( 'If there is something wrong about it, please contact us', 'related_posts_plugin' ); ?>:<br/>
+				<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
+				</div>
+			</div>
 		</div>
 	<?php
 	}
@@ -453,6 +495,7 @@ add_action( 'admin_init', 'rltdpstsplgn_plugin_version_check' );
 add_action( 'admin_menu', 'add_rltdpstsplgn_admin_menu' );
 add_action( 'admin_enqueue_scripts', 'rltdpstsplgn_admin_style' );
 add_action( 'wp_enqueue_scripts', 'rltdpstsplgn_admin_style' );
+add_action( 'admin_head', 'rltdpstsplgn_admin_js' );
 /* Add meta box for Posts */
 add_action( 'add_meta_boxes', 'rltdpstsplgn_add_box' );
 /* Save our own meta_key */

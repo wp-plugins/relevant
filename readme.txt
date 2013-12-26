@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: related posts, posts, related, related posts plugin, plugin, related category posts, related tag posts, category, tag
 Requires at least: 3.0
-Tested up to: 3.7.1
-Stable tag: 1.0.3
+Tested up to: 3.8
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,10 @@ After you choosed "Meta Key" you should do follow:
 
 == Changelog ==
 
+= V1.0.4 - 26.12.13 =
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 3.8.
+
 = V1.0.3 - 08.10.13 =
 * NEW : Add checking installed wordpress version.
 * Update : We updated all functionality for wordpress 3.7.1.
@@ -118,6 +122,9 @@ After you choosed "Meta Key" you should do follow:
 * Update : Improved design of code.
 
 == Upgrade Notice ==
+
+= V1.0.4 =
+BWS plugins section is updated. We updated all functionality for wordpress 3.8.
 
 = V1.0.3 =
 Add checking installed wordpress version. We updated all functionality for wordpress 3.7.1. Activation of radio button or checkbox by clicking on its label.
