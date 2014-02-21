@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: related posts, posts, related, related posts plugin, plugin, related category posts, related tag posts, category, tag
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 1.0.4
+Tested up to: 3.8.1
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,14 @@ After you choosed "Meta Key" you should do follow:
 - save the post;
 - repeat all this step for each post you want to display as related.
 
+= I have some problems with the plugin's work. What Information should I provide to receive proper support? =
+
+Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+1. the link to the page where the problem occurs
+2. the name of the plugin and its version. If you are using a pro version - your order number.
+3. the version of your WordPress installation
+4. copy and paste into the message your system status report. Please read more here: <a href="http://bestwebsoft.com/wp-content/uploads/manual/wp_plugin/general/System_Status.pdf" target="_blank">System_Status.pdf</a>
+
 == Screenshots ==
 
 1. Related Posts Plugin Settings page.
@@ -100,28 +108,37 @@ After you choosed "Meta Key" you should do follow:
 
 == Changelog ==
 
-= V1.0.4 - 26.12.13 =
+= V1.0.5 - 21.02.2014 =
+* Update : Screenshots are updated.
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 3.8.1.
+* Bugfix : Problem with posts marked by Meta Key is fixed.
+
+= V1.0.4 - 26.12.2013 =
 * Update : BWS plugins section is updated.
 * Update : We updated all functionality for wordpress 3.8.
 
-= V1.0.3 - 08.10.13 =
+= V1.0.3 - 08.10.2013 =
 * NEW : Add checking installed wordpress version.
 * Update : We updated all functionality for wordpress 3.7.1.
 * Update : Activation of radio button or checkbox by clicking on its label.
 
-= V1.0.2 - 02.10.13 =
+= V1.0.2 - 02.10.2013 =
 * NEW : We added BWS Menu.
 * NEW : We added new screenshots.
 * Update : Styles were updated.
 
-= V1.0.1 - 04.09.13 =
+= V1.0.1 - 04.09.2013 =
 * NEW : We added plugin description and a screenshot.
 * Update : Changed style and description of meta box.
 
-= V1.0.0 - 24.08.13 =
+= V1.0.0 - 24.08.2013 =
 * Update : Improved design of code.
 
 == Upgrade Notice ==
+
+= V1.0.5 =
+Screenshots are updated. BWS plugins section is updated. We updated all functionality for wordpress 3.8.1. Problem with posts marked by Meta Key is fixed.
 
 = V1.0.4 =
 BWS plugins section is updated. We updated all functionality for wordpress 3.8.

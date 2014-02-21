@@ -4,13 +4,13 @@ Plugin Name: Relevant - Related Posts Plugin
 Plugin URI: http://bestwebsoft.com/plugin/
 Description: Related Posts Plugin intended to display related posts by category, by tag, by title or by meta key. The result can be displayed as a widget and as a shortocode.
 Author: BestWebSoft
-Version: 1.0.4
+Version: 1.0.5
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
 
 /*
-	© Copyright 2013  BestWebSoft  ( http://support.bestwebsoft.com )
+	© Copyright 2014  BestWebSoft  ( http://support.bestwebsoft.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -91,8 +91,6 @@ if ( ! function_exists ( 'rltdpstsplgn_plugin_init' ) ) {
 	function rltdpstsplgn_plugin_init() {
 		/* Internationalization */
 		load_plugin_textdomain( 'related_posts_plugin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-		/* Other init stuff, be sure to it after load_plugins_textdomain if it involves translated text(!) */
-		load_plugin_textdomain( 'bestwebsoft', false, dirname( plugin_basename( __FILE__ ) ) . '/bws_menu/languages/' );
 	}
 }
 
@@ -120,8 +118,6 @@ if ( ! function_exists ( 'rltdpstsplgn_admin_style' ) ) {
 			wp_enqueue_style( 'rltdpstsplgnstylesheet', plugins_url( 'css/style_wp_before_3.8.css', __FILE__ ) );	
 		else
 			wp_enqueue_style( 'rltdpstsplgnstylesheet', plugins_url( 'css/style.css', __FILE__ ) );
-		if ( isset( $_GET['page'] ) && "bws_plugins" == $_GET['page'] )
-			wp_enqueue_script( 'bws_menu_script', plugins_url( 'js/bws_menu.js', __FILE__ ) );
 	}
 }
 
@@ -184,7 +180,7 @@ if ( ! function_exists( 'rltdpstsplgn_add_box' ) ) {
 /* Create meta box */
 if ( ! function_exists( 'rltdpstsplgn_meta_box' ) ) {
 	function rltdpstsplgn_meta_box( $post ) {
-		$rltdpstsplgn_meta = get_post_meta( $post->ID, '_rltdpstsplgn_meta_key', 1 ); ?>
+		$rltdpstsplgn_meta = get_post_meta( $post->ID, 'rltdpstsplgn_meta_key', 1 ); ?>
 		<p><?php _e( 'Check "Key" if you want to display this post with Related Posts Plugin sorted by Meta Key:', 'related_posts_plugin' ); ?></p>
 		<p>
 			<label><input type="radio" name="extra[rltdpstsplgn_meta_key]" value="key" <?php checked( $rltdpstsplgn_meta, 'key' ); ?> /> <?php _e( "Key", "related_posts_plugin" ); ?></label>
@@ -286,7 +282,7 @@ if ( ! function_exists( 'rltdpstsplgn_settings_page' ) ) {
 			/* Save checked radio and number of posts */
 			$rltdpstsplgn_options = $_POST['rltdpstsplgn_options'];
 			if ( isset( $rltdpstsplgn_options ) && ! empty( $rltdpstsplgn_options['number_post'] ) && preg_match( '|^[\d]*$|', $rltdpstsplgn_options['number_post'] ) ) {
-				if ( ! isset( $_POST['rltdpstsplgn_options']['rltdpstsplgn_index_show'] ) ) {
+				if ( ! isset( $_POST['rltdpstsplgn_options']['index_show'] ) ) {
 					$rltdpstsplgn_options['index_show'] = 0;
 				}
 				update_option( 'rltdpstsplgn_options', $rltdpstsplgn_options );
@@ -379,12 +375,12 @@ if ( ! function_exists( 'rltdpstsplgn_settings_page' ) ) {
 			<br />
 			<div class="bws-plugin-reviews">
 				<div class="bws-plugin-reviews-rate">
-				<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'related_posts_plugin' ); ?>:<br/>
-				<a href="http://wordpress.org/support/view/plugin-reviews/relevant" target="_blank" title="Relevant - Related Posts Plugin"><?php _e( 'Rate the plugin', 'related_posts_plugin' ); ?></a><br/>
+					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'related_posts_plugin' ); ?>: 
+					<a href="http://wordpress.org/support/view/plugin-reviews/relevant" target="_blank" title="Relevant - Related Posts Plugin"><?php _e( 'Rate the plugin', 'related_posts_plugin' ); ?></a>
 				</div>
 				<div class="bws-plugin-reviews-support">
-				<?php _e( 'If there is something wrong about it, please contact us', 'related_posts_plugin' ); ?>:<br/>
-				<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
+					<?php _e( 'If there is something wrong about it, please contact us', 'related_posts_plugin' ); ?>: 
+					<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
 				</div>
 			</div>
 		</div>
@@ -419,7 +415,7 @@ if ( ! function_exists( 'rltdpstsplgn_loop' ) ) {
 			}
 		} elseif ( 'meta' == $rltdpstsplgn_options['criteria'] ) { /* Sort by meta key */
 			$args = array(
-				'meta_key'				=>	'_rltdpstsplgn_meta_key',
+				'meta_key'				=>	'rltdpstsplgn_meta_key',
 				'post__not_in'			=>	array( $rltdpstsplgn_post_ID ),
 				'showposts'				=>	$rltdpstsplgn_options['number_post'],
 		 		'ignore_sticky_posts'	=>	1
