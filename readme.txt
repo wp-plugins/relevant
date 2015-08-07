@@ -16,6 +16,8 @@ Related Posts Plugin allows to display a list of post titles by the widget or by
 
 http://www.youtube.com/watch?v=WfTT6xSgrKI
 
+<a href="https://www.youtube.com/watch?v=jcCbaAy_uOc" target="_blank">Video instruction on Installation</a>
+
 <a href="http://wordpress.org/plugins/relevant/faq/" target="_blank">FAQ</a>
 
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
@@ -58,6 +60,8 @@ We can fix some things for free for the users who provide translation of our plu
 5. Add Related Posts Plugin widget to the widget area.
 
 <a href="https://docs.google.com/document/d/18iLmYTHp9ue8-niUIhOzGB9F9EbunnvijPJCCgzqqaw/edit" target="_blank">View a Step-by-step Instruction on Relevant - Related Posts Plugin Installation</a>.
+
+http://www.youtube.com/watch?v=jcCbaAy_uOc
 
 == Frequently Asked Questions ==
 
